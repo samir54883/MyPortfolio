@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Chanakya";
+    src: url("./Fonts/Chanakya Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Druk";
+    src: url("./Fonts/Druk-Medium-Trial.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "FrenchDemo";
+    src: url("./Fonts/FrenchDemo.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Naganoshi";
+    src: url("./Fonts/Naganoshi.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
