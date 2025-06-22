@@ -26,3 +26,123 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "NgeticModern";
+    src: url("./Fonts/NgeticModern-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: "Parisienne";
+    src: url("./Fonts/Parisienne-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Miskan";
+    src: url("./Fonts/Miskan.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Burgundia";
+    src: url("./Fonts/Burgundia_PERSONAL_USE_ONLY.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Crustaceans";
+    src: url("./Fonts/Crustaceans-SignatureDEMO-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "KOHINanum";
+    src: url("./Fonts/KOHINanum_Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Kremlin";
+    src: url("./Fonts/kremlin.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MingImperial";
+    src: url("./Fonts/Ming Imperial.TTF") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSerifKR";
+    src: url("./Fonts/NotoSerifKR-Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Antaresia";
+    src: url("./Fonts/Antaresia.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Scriptorial";
+    src: url("./Fonts/Scriptorial.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Adelia";
+    src: url("./Fonts/adelia.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "FrenchQuarter";
+    src: url("./Fonts/TheFrenchQuarter.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TiroDevanagariHindi";
+    src: url("./Fonts/TiroDevanagariHindi-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Yulltan";
+    src: url("./Fonts/Yulltan-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Kabyah";
+    src: url("./Fonts/Kabyah-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Autography";
+    src: url("./Fonts/Autography.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+

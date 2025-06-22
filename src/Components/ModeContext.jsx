@@ -4,8 +4,7 @@ const ModeContext = createContext();
 
 export function ModeProvider({ children }) {
     const [mode, setMode] = useState(() => {
-        // Read mode from localStorage or default to "darkMinimal"
-        return localStorage.getItem("preferredMode") || "darkMinimal";
+        return localStorage.getItem("preferredMode") || "enhancedDark";
     });
 
     useEffect(() => {

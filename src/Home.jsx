@@ -1,7 +1,8 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import { useMode } from './components/ModeContext';
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import { useMode } from "./components/ModeContext";
 
+// Keyframes for animated dots
 const dots = keyframes`
     0%, 20% {
         content: '.';
@@ -17,6 +18,7 @@ const dots = keyframes`
     }
 `;
 
+// Styled component to render animated dots
 const Dot = styled.span`
     &::after {
         content: '.';
@@ -24,7 +26,7 @@ const Dot = styled.span`
     }
 `;
 
-// Dynamic styled-component based on props
+// Main wrapper that adapts to mode
 const Wrapper = styled.div`
     display: flex;
     align-items: center;
@@ -35,9 +37,9 @@ const Wrapper = styled.div`
     transition: background-color 0.3s ease, color 0.3s ease;
 
     background-color: ${({ mode }) =>
-            mode.includes('dark') ? '#000' : '#fff'};
+            mode === "enhancedDark" ? "#6446FF" : "#3488e3"};
     color: ${({ mode }) =>
-            mode.includes('dark') ? '#fff' : '#000'};
+            mode === "enhancedDark" ? "#fff" : "#000"};
 `;
 
 const Home = () => {

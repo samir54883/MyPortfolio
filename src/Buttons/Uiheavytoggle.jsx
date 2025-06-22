@@ -1,18 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./Uiheavytoggle.css";
+import { useMode } from "../Components/ModeContext";
 
 const Uiheavytoggle = () => {
-    const [darkTheme, setDarkTheme] = useState(true); // default dark mode
+    const { mode, setMode } = useMode();
 
-    const toggleTheme = () => setDarkTheme(!darkTheme);
+    const isDark = mode === "enhancedDark";
+
+    const toggleTheme = () => {
+        setMode(isDark ? "enhancedLight" : "enhancedDark");
+    };
 
     useEffect(() => {
-        if (darkTheme) {
+        if (isDark) {
             document.body.classList.add("dark");
+            document.body.classList.remove("light");
         } else {
             document.body.classList.remove("dark");
+            document.body.classList.add("light");
         }
-    }, [darkTheme]);
+    }, [isDark]);
 
     return (
         <div className="toggle-wrapper">
@@ -20,7 +27,7 @@ const Uiheavytoggle = () => {
                 <input
                     id="input"
                     type="checkbox"
-                    checked={darkTheme}
+                    checked={isDark}
                     onChange={toggleTheme}
                 />
                 <div className="slider round">
