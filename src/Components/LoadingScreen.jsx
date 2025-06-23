@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMode } from "../Components/ModeContext";
 import Uiheavytoggle from "../Buttons/Uiheavytoggle";
+import PurpleAbstract from "/public/PurpleAbstract.jpg";
 
 // Dark Mode Buttons
 import UIHeavyButton from "../Buttons/UIHeavyButton";
@@ -38,7 +39,7 @@ export default function LoadingScreen() {
     const [beginExit, setBeginExit] = useState(false);
 
     useEffect(() => {
-        const t = setTimeout(() => setStartLoop(true), 2000);
+        const t = setTimeout(() => setStartLoop(true), 1000);
         return () => clearTimeout(t);
     }, []);
 
@@ -49,7 +50,7 @@ export default function LoadingScreen() {
             setGreetingIndex((prev) => {
                 if (prev === greetings.length - 1) {
                     clearInterval(loop);
-                    setTimeout(() => setShowFinal(true), 600);
+                    setTimeout(() => setShowFinal(true), 300);
                     return prev;
                 }
                 return prev + 1;
@@ -61,12 +62,12 @@ export default function LoadingScreen() {
 
     useEffect(() => {
         if (showFinal) {
-            const t = setTimeout(() => setBeginExit(true), 1800);
+            const t = setTimeout(() => setBeginExit(true), 800);
             return () => clearTimeout(t);
         }
     }, [showFinal]);
 
-    const fade = { duration: 1.2, ease: [0.2, 0.8, 0.2, 1] };
+    const fade = { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] };
 
     // Dynamically switch components based on mode
     const HeavyButton = isDark ? UIHeavyButton : UIHeavyLightButton;
@@ -77,22 +78,22 @@ export default function LoadingScreen() {
         <AnimatePresence>
             {!beginExit && (
                 <motion.div
-                    className={`fixed inset-0 z-50 min-h-screen overflow-hidden flex flex-col justify-center items-center ${
+                    className={`fixed inset-0 z-[1000] min-h-screen overflow-hidden flex flex-col justify-center items-center ${
                         isDark ? "text-white" : "text-black"
                     } py-12`}
-                    initial={{ y: 0 }}
-                    animate={{ y: 0 }}
-                    exit={{ y: "-100%" }}
-                    transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
+                    initial={{y: 0}}
+                    animate={{y: 0}}
+                    exit={{y: "-100%"}}
+                    transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                 >
                     {/* --- Static background block --- */}
-                    <div className={`absolute inset-0 ${isDark ? "bg-black" : "bg-white"} -z-20`} />
+                    <div className={`absolute inset-0 ${isDark ? "bg-black" : "bg-white"} -z-20`}/>
 
                     {/* --- Radial-gradient background --- */}
                     <motion.div
-                        initial={{ y: 0 }}
-                        animate={showFinal ? { y: 100, opacity: 0 } : { y: 0, opacity: 1 }}
-                        transition={{ duration: 1.2 }}
+                        initial={{y: 0}}
+                        animate={showFinal ? {y: 100, opacity: 0} : {y: 0, opacity: 1}}
+                        transition={{duration: 1.2}}
                         className={`absolute inset-0 -z-10 h-full w-full ${
                             isDark
                                 ? "[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
@@ -102,28 +103,34 @@ export default function LoadingScreen() {
 
                     {/* --- Greeting Text --- */}
                     <motion.div
-                        initial={{ y: -200, opacity: 0, scale: 0.92, marginTop: "-10rem" }}
+                        initial={{y: -200, opacity: 0, scale: 0.92, marginTop: "-10rem"}}
                         animate={
                             showFinal
-                                ? { y: 0, scale: 1.15, opacity: 1, marginTop: "0rem" }
-                                : { y: 0, scale: 1, opacity: 1, marginTop: "-10rem" }
+                                ? {y: 0, scale: 1.15, opacity: 1, marginTop: "0rem"}
+                                : {y: 0, scale: 1, opacity: 1, marginTop: "-10rem"}
                         }
                         transition={fade}
-                        className={`text-7xl ${greetings[greetingIndex].fontClass}`}
+                        className={`
+        text-7xl 
+        ${greetings[greetingIndex].fontClass} 
+        transition-colors duration-300
+        ${isDark ? "hover:text-[#63e]" : "hover:text-[#3488e3]"}
+    `}
                     >
                         {greetings[greetingIndex].text}
                     </motion.div>
 
+
                     {/* --- Bottom-center buttons --- */}
                     <motion.div
-                        initial={{ y: 100, opacity: 0, scale: 0.92 }}
-                        animate={showFinal ? { y: 200, opacity: 0 } : { y: 0, opacity: 1, scale: 1 }}
-                        transition={{ ...fade, delay: 0.1 }}
+                        initial={{y: 100, opacity: 0, scale: 0.92}}
+                        animate={showFinal ? {y: 200, opacity: 0} : {y: 0, opacity: 1, scale: 1}}
+                        transition={{...fade, delay: 0.1}}
                         className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
                     >
                         <div className="flex flex-row items-center gap-4">
-                            <HeavyButton className="scale-80" />
-                            <MinimalBtn className="scale-80" />
+                            <HeavyButton className="scale-80"/>
+                            <MinimalBtn className="scale-80"/>
                         </div>
                         <div className="text-base md:text-lg text-center max-w-[20rem] px-3 georgia-font text-white">
                             Choose your preferred interface for an immersive journey
@@ -132,26 +139,28 @@ export default function LoadingScreen() {
 
                     {/* --- Bottom-left sound button --- */}
                     <motion.div
-                        initial={{ y: 100, opacity: 0, scale: 0.92 }}
-                        animate={showFinal ? { y: 200, opacity: 0 } : { y: 0, opacity: 1, scale: 1 }}
-                        transition={{ ...fade, delay: 0.15 }}
+                        initial={{y: 100, opacity: 0, scale: 0.92}}
+                        animate={showFinal ? {y: 200, opacity: 0} : {y: 0, opacity: 1, scale: 1}}
+                        transition={{...fade, delay: 0.15}}
                         className="absolute bottom-4 left-8 flex flex-col items-center gap-4"
                     >
-                        <SoundButton className="scale-80" />
-                        <div className="text-base md:text-lg text-center max-w-[16rem] px-1 leading-tight georgia-font text-white">
+                        <SoundButton className="scale-80"/>
+                        <div
+                            className="text-base md:text-lg text-center max-w-[16rem] px-1 leading-tight georgia-font text-white">
                             Enhance the experience with sound effects.
                         </div>
                     </motion.div>
 
                     {/* --- Bottom-right toggle --- */}
                     <motion.div
-                        initial={{ y: 100, opacity: 0, scale: 0.92 }}
-                        animate={showFinal ? { y: 200, opacity: 0 } : { y: 0, opacity: 1, scale: 1 }}
-                        transition={{ ...fade, delay: 0.2 }}
+                        initial={{y: 100, opacity: 0, scale: 0.92}}
+                        animate={showFinal ? {y: 200, opacity: 0} : {y: 0, opacity: 1, scale: 1}}
+                        transition={{...fade, delay: 0.2}}
                         className="absolute bottom-4 right-8 flex flex-col items-center gap-4"
                     >
-                        <Uiheavytoggle className="scale-80" />
-                        <div className="text-base md:text-lg text-center max-w-[14rem] px-1 leading-tight georgia-font text-white">
+                        <Uiheavytoggle className="scale-80"/>
+                        <div
+                            className="text-base md:text-lg text-center max-w-[14rem] px-1 leading-tight georgia-font text-white">
                             You can choose the mode you like
                         </div>
                     </motion.div>
